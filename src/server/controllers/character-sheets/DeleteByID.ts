@@ -15,7 +15,11 @@ export const deleteByIDValidator: RequestHandler = produceValidator({
 
 export const deleteByID = async (request: Request<ParamsProps>, response: Response) => {
 
-	console.log('┴┬┴┤( ͡° ͜ʖ├┬┴┬', request.query)
-    
-	return response.status(StatusCodes.CREATED).send('Created')
+    if(Number(request.params.id) === 9999) return response.status(500).json({
+		errors: {
+			default: 'Sheet not found'
+		}
+	})
+	
+	return response.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Created')
 }

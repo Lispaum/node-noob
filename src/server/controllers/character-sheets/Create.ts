@@ -23,7 +23,7 @@ export const createBodyValidator: RequestHandler = produceValidator({
 
 export const create = async (request: Request<object,object, CharacterSheetProps>, response: Response) => {
 
-	console.log('┴┬┴┤( ͡° ͜ʖ├┬┴┬', request.body)
+	console.log( request.body)
     
 	return response.status(StatusCodes.CREATED).send('Created')
 }
